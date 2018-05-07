@@ -1,0 +1,13 @@
+The Wumpus Rules
+
+Here is what we know to be true in any wumpus world, for the purposes of this assignment
+(NOTE THAT THESE RULES ARE NOT IDENTICAL TO THE ONES IN THE TEXTBOOK):
+
+1. If there is a monster at square (i,j), there is stench at all adjacent squares.
+2. If there is stench at square (i,j), there is a monster at one of the adjacent squares.
+3. If there is a pit at square (i,j), there is breeze at all adjacent squares.
+4. If there is breeze at square (i,j), there is a pit at one or more of the adjacent squares.
+5. There is one and only one monster (no more, no fewer).
+6. Squares (1,1), (1,2), (2,1), (2,2) have no monsters and no pits.
+7. The number of pits can be between 1 and 11.
+8. We don't care about gold, glitter, and arrows, there will be no information about them in the knowledge base, and no reference to them in the statement.
