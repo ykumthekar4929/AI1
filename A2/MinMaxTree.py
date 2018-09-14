@@ -30,14 +30,7 @@ class MinMaxTree:
 		self.game = game
 		self.depth = int(depth)
 
-	def getDecision(self):
-		minValues = []
-		possibleMoves = self.getPossibleMoves(self.game.gameBoard)
-		for move in possibleMoves:
-			rslt = self.getMoveOutcome(self.game, move)
-			minValues.append(self.getMin(rslt,-inf,inf))
-		decision = possibleMoves[minValues.index(max(minValues))]
-		return decision
+
 
 	def getMin(self, state, alpha, beta):
 		if state.pieceCount == 42 or state.execDepth == self.depth:
@@ -50,6 +43,13 @@ class MinMaxTree:
 			return currValue
 		beta = min(beta, currValue)
 		return currValue
+
+	def getDecision(self):
+		minValues = []
+		possibleMoves = self.getPossibleMoves(self.game.gameBoard)
+		minValues = [self.getMin(self.getMoveOutcome(self.game, move),-inf,inf) for move in possibleMoves]
+		decision = possibleMoves[minValues.index(max(minValues))]
+		return decision
 
 	def getMax(self, state, alpha, beta):
 		if state.pieceCount == 42 or state.execDepth == self.depth:
